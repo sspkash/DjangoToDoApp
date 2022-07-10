@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <div>
+        <h4>{{ todo_list.title }}</h4>
+    </div>
+    <div>
+    {% for onetask in object_list %}
+    <input value="{{ onetask.title  }} (due {{ onetask.due_timestamp | date:"l, F j, P" }})" type="submit" onclick="location.href='{% url "task-update" todo_list.id onetask.id %}'"/>
+    </div>
+    {% empty %}
+    <h5>There are no tasks in this list!</h5>
+    {% endfor %}
+    <p>
+        <input value="Add a new task" type="button" onclick="location.href='{% url "task-add" todo_list.id %}'"/>
+        <input value="Delete this list" type="button" onclick="location.href='{% url "list-delete" todo_list.id %}'"/>
+    </p>
+</div>
+{% endblock %}

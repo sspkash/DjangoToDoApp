@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.simplecss.org/simple.min.css" rel="stylesheet">
+    <title>ToDo</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1><a href="{% url 'index' %}">What do you want #ToDo?</a></h1>
+            <h3>A minimalistic app to help you get things done!</h3>
+            <h6>Powered by Django, HTML, and CSS.</h6>
+        </div>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </header>
+</body>
+</html>
